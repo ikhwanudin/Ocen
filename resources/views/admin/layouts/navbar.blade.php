@@ -19,6 +19,28 @@
                 <a class="nav-link" href="/posts">posts</a>
             </li>
         </ul>
+        <form class="my-2 my-lg-0">
+          {{-- <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button> --}}
+          <div class="typeahead__container">
+            <div class="typeahead__field">
+
+                <span class="typeahead__query">
+                    <input class="js-typeahead" 
+                           placeholder="Search" 
+                           name="q"
+                           type="search"
+                           autofocus
+                           autocomplete="off">
+                </span>
+                <span class="typeahead__button">
+                    <button class="btn btn-default" type="submit">
+                        <span class="typeahead__search-icon"></span>
+                    </button>
+                </span>
+
+            </div>
+        </div>
+        </form>
         <ul class="navbar-nav">
             <!-- Authentication Links -->
             @if (Auth::guest())

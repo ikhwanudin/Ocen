@@ -8,34 +8,24 @@ use App\Page;
 
 class PagesController extends Controller
 {
-    //testing
-
-    public function testShow($slug)
+    public function pageShow($slug)
     {
-        $page = Page::where('slug', $slug)->first();
+        $page = Page::where('slug', $slug)->firstOrFail();
         $view = 'pages.index';
         return view($view, compact('page'));
     }
     public function index()
     {
-        return view('index');
+        $page = Page::RootPage();
+        if($page->role == 'dynamic'){
+            $posts = Post::latest()->paginate(10);
+            return view('index', compact('posts'));
+        }else{
+            return view('pages.index', compact('page'));
+        }
     }
-    public function posts()
+    public function show(Post $post)
     {
-        $posts = Post::latest()->paginate(10);
-        return view('posts.index', compact('posts'));
-    }
-    public function show($id)
-    {
-        $post = Post::find($id);
         return view('posts.show', compact('post'));
-    }
-    public function about()
-    {
-        return view('pages.about');
-    }
-    public function services()
-    {
-        return view('pages.services');
     }
 }

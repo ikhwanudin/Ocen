@@ -1,6 +1,7 @@
 @extends('layouts.master')
 
 @section('content')
-	{{ $page->content }}
-	{{ $page->role }}
+	<h1>{{ $page->title }}</h1>
+	<hr>
+	<p>{{ $page->content }}</p>
 @endsection

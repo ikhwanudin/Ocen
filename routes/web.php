@@ -11,15 +11,14 @@
 |
 */
 
+Route::get('/', 'PagesController@index');
+
 Route::get('/posts', 'PagesController@posts')->name('posts');
-Route::get('/{slug}', 'PagesController@testShow');
-// Route::get('/', 'PagesController@index')->name('home');
-// Route::get('/about', 'PagesController@about')->name('about');
-// Route::get('/services', 'PagesController@services')->name('services');
 Route::get('/posts/{post}', 'PagesController@show')->name('show');
 
 Route::resource('dashboard/posts', 'PostsController');
 
 Auth::routes();
-
 Route::get('dashboard', 'DashboardController@index')->name('dashboard');
+
+Route::get('/{page}', 'PagesController@pageShow');

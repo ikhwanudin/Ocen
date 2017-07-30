@@ -177,6 +177,12 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+        /*
+        * Theme engine
+        */
+        Facuz\Theme\ThemeServiceProvider::class,
+
+
     ],
 
     /*
@@ -225,6 +231,7 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
+        'Theme' => Facuz\Theme\Facades\Theme::class,
 
     ],
 
